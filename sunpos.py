@@ -229,41 +229,7 @@ if __name__ == '__main__':
     # Latitude: North = +, South = -
     # Longitude: East = -, West = +
     # For July 1 2014
-    samples = [(46.5,6.5, 163.03, 65.83),
-               (46.0,6.0, 163.82, 66.41),
-               (-41,0,    0.98, 25.93),
-               (-3,0,     2.01,63.9),
-               (3,0,      2.58, 69.89),
-               (41,0,     177.11, 72.07),
-               (40,0,     176.95, 73.07),
-               (-40,0,    0.99, 26.93),
-               (-40,40,   38.91, 16.31),
-               (-40,-40,  322.67, 17.22),
-               (-20,-100, 289.35, -15.64),
-               (20,-100,  29.47, 0.4),
-               (80,-100,  283.05, 21.2),
-               (80,-20,   200.83, 32.51),
-               (80,0,     178.94, 33.11),
-               (80,40,    135.6, 30.47),
-               (80,120,   55.89, 17.74),
-               (0, 0,     2.26, 66.89)
-               ]
-    print "Noon July 1 2014 at 0,0 = 2.26, 66.89"
-    print "",sun_position(2014,7,1, lat=0, longitude=0)
-    print "Noon Dec 22 2012 at 41,0 = 180.03, 25.6"
-    print "",sun_position(2012, 12, 22, lat=41, longitude=0)
-    print "Noon Dec 22 2012 at -41,0 = 359.09, 72.44"
-    print "",sun_position(2012, 12, 22, lat=-41, longitude=0)
+    print "Noon June 13 2018 at 0,0 = 2.26, 66.89"
+    print "",sun_position(2018,6,13, lat=41.241182, longitude=-77.001065)
     print
 
-    for s in samples:
-        lat, lon, az, el = s
-        print "\nFor lat,long:", lat, lon,
-        calc_az, calc_el = sun_position(2014,7,1, lat=lat, longitude=lon)
-        az_ok = abs(az-calc_az) < 0.5
-        el_ok = abs(el-calc_el) < 0.5
-        if not(az_ok and el_ok):
-            print "\n Azimuth (Noaa,calc)   = %4.2f %4.2f (error %4.2f)" %(az, calc_az, abs(az-calc_az))
-            print " Elevation (Noaa,calc) = %4.2f %4.2f (error %4.2f)" %(el, calc_el, abs(el-calc_el))
-        else:
-            print" OK (<0.5 error)"
