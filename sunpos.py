@@ -1,5 +1,6 @@
 #!/usr/python
 
+import datetime
 # from R
 """
 sunPosition <- function(year, month, day, hour=12, min=0, sec=0,
@@ -123,7 +124,9 @@ def calc_time(year, month, day, hour=12, minute=0, sec=0):
     return time
 
     
-def sun_position(year, month, day, hour=12, minute=0, sec=0,
+now = datetime.datetime.now()
+#print ( now.year, now.month, now.day, now.hour, now.minute, now.second)
+def sun_position( year, month, day, hour, minute, sec,
                 lat=46.5, longitude=6.5):
 
     twopi = 2 * math.pi
@@ -229,7 +232,8 @@ if __name__ == '__main__':
     # Latitude: North = +, South = -
     # Longitude: East = -, West = +
     # For July 1 2014
-    print "Noon June 13 2018 at 0,0 = 2.26, 66.89"
-    print "",sun_position(2018,6,13, lat=41.241182, longitude=-77.001065)
+    print ( str(now.year) +"/"+ str(now.month) +"/"+ str(now.day), str(now.hour) +":"+ str("%02d" % (now.minute,)) +":"+ str("%02d" % (now.second,)))
+    print("Azimuth              Elevation")
+    print( sun_position(now.year, now.month, now.day, now.hour, now.minute, now.second, lat=41.241182, longitude=-77.001065))
     print
 
