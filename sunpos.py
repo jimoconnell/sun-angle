@@ -1,6 +1,5 @@
 #!/usr/python
 
-import datetime
 # from R
 """
 sunPosition <- function(year, month, day, hour=12, min=0, sec=0,
@@ -97,6 +96,7 @@ sunPosition <- function(year, month, day, hour=12, min=0, sec=0,
     return(list(elevation=el, azimuth=az))
 }
 """
+import datetime
 import math
 
 def leapyear(year):  
@@ -104,7 +104,7 @@ def leapyear(year):
     elif year % 100 == 0: return False  
     elif year % 4 == 0:   return True  
     else: return False
-    
+
 
 def calc_time(year, month, day, hour=12, minute=0, sec=0):
     # Get day of the year, e.g. Feb 1 = 32, Mar 1 = 61 on leap years
@@ -236,4 +236,4 @@ if __name__ == '__main__':
     print("Azimuth              Elevation")
     print( sun_position(now.year, now.month, now.day, now.hour, now.minute, now.second, lat=41.241182, longitude=-77.001065))
     print
-
+    
